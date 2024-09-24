@@ -57,7 +57,7 @@ if __name__ == '__main__':
                     print(f'Arquivo aberto: {abrir_arquivo}.json.\n')
                     usuario['codigo'] = len(usuarios)
                     for campo in campos:
-                        usuario[campo] = input(f'Informe o campo {campo.capitalize()}: ')   ''
+                        usuario[campo] = input(f'Informe o campo {campo.capitalize()}: ')   
                         usuarios.append(usuario)
                         print(m.salvar_dados(usuarios, abrir_arquivo))
 
