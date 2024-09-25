@@ -16,6 +16,7 @@ if __name__ == '__main__':
         print('1 - Criar novo arquivo JSON')
         print('2 - Abrir e ler arquivo JSON')
         print('3 - Salvar novo usuário')
+        print('4 - Alterar dados do usuário')
         print('0 - Sair do programa')
 
         opcao = input('Informe opção desejada: ')
@@ -75,6 +76,25 @@ if __name__ == '__main__':
                 except Exception as e:
                     print(f'Não foi possível realizar a operação. {e}.')
 
+                finally:
+                    continue
+            
+            case '4':
+                try:
+                    print(f'Arquivo aberto: {abrir_arquivo}.json.\n')
+                    codigo = int(input('Informe o código do usuário que deseja alterar os dados: '))
+                    for campo in usuarios[codigo]:
+                        print(f'Valor atual do campo: {campo}: {usuarios[codigo].get(campo)}')
+                        novo_dado = input(f'Informe o novo dado do campo {campo} ou aperte "Enter" caso deseje mater o mesmo valor: ')
+                        if novo_dado:
+                            usuarios[codigo][campo] = novo_dado
+                        else:
+                            ...
+                    print(m.salvar_dados(usuarios, abrir_arquivo))
+                    
+                except Exception as e:
+                    print('Não foi possível alterar os dados.')
+                
                 finally:
                     continue
 
