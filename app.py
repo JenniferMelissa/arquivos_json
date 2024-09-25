@@ -52,14 +52,25 @@ if __name__ == '__main__':
             
             case '3':
                 try:
-                    usuario = {} #dicionario
-                    campos = ('nome','cpf','email','profissao')  #tupla
+                    # usuario = {} #dicionario
+                    # campos = ('nome','cpf','email','profissao')  #tupla
+                    # print(f'Arquivo aberto: {abrir_arquivo}.json.\n')
+                    # usuario['codigo'] = len(usuarios)
+                    # for campo in campos:
+                    #     usuario[campo] = input(f'Informe o campo {campo.capitalize()}: ')   
+                    #     usuarios.append(usuario)
+                    #     print(m.salvar_dados(usuarios, abrir_arquivo))
+
                     print(f'Arquivo aberto: {abrir_arquivo}.json.\n')
-                    usuario['codigo'] = len(usuarios)
-                    for campo in campos:
-                        usuario[campo] = input(f'Informe o campo {campo.capitalize()}: ')   
-                        usuarios.append(usuario)
-                        print(m.salvar_dados(usuarios, abrir_arquivo))
+                    p.codigo    = len(usuarios)
+                    p.nome      = input('Informe o nome: ')
+                    p.cpf       = input('Informe o CPF: ')
+                    p.email     = input('Informe o e-mail: ')
+                    p.profissao = input('Informe a profissão: ')
+                    #dict = outra forma de criar dicionarios
+                    usuario     = dict(codigo = p.codigo, nome = p.nome, cpf = p.cpf, email = p.email, profissao = p.profissao)
+                    usuarios.append(usuario)
+                    print(m.salvar_dados(usuarios, abrir_arquivo))
 
                 except Exception as e:
                     print(f'Não foi possível realizar a operação. {e}.')
