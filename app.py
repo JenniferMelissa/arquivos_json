@@ -17,6 +17,7 @@ if __name__ == '__main__':
         print('2 - Abrir e ler arquivo JSON')
         print('3 - Salvar novo usuário')
         print('4 - Alterar dados do usuário')
+        print('5 - Deletar usuário')
         print('0 - Sair do programa')
 
         opcao = input('Informe opção desejada: ')
@@ -95,6 +96,25 @@ if __name__ == '__main__':
                 except Exception as e:
                     print('Não foi possível alterar os dados.')
                 
+                finally:
+                    continue
+
+            case '5':   
+                try:
+                    print(f'Arquivo aberto: {abrir_arquivo}.json.')
+                    codigo = int(input('Informe o código do usuário que deseja deletar: '))
+                    nome_deletado = usuarios[codigo]['nome']
+                    confirmacao = input(f'Deseja deletar o usuário {nome_deletado}? Digite "SIM" para confirmar: ').upper()
+                    if confirmacao == 'SIM':
+                        del(usuarios[codigo])
+                        print(m.salvar_dados(usuarios, abrir_arquivo))
+                        print(f'Usuário {nome_deletado} deletado com sucesso.')
+                    else:
+                        print(f'Usuário {nome_deletado} não foi excluído.')            
+
+                except Exception as e:
+                    print(f'Não foi possível deletar o arquivo.')
+
                 finally:
                     continue
 
